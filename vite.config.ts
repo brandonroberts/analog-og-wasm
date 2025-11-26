@@ -21,6 +21,10 @@ export default defineConfig(() => ({
       },
       nitro: {
         preset: 'vercel-edge',
+        cloudflare: {
+          deployConfig: true,
+          nodeCompat: true
+        },
         rollupConfig: {
           external: [/^@cf-wasm\/.*/],
         },
