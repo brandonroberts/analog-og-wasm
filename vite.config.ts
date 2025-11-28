@@ -95,6 +95,9 @@ export default defineConfig(() => ({
   resolve: {
     mainFields: ['module'],
   },
+  ssr: {
+    noExternal: ['@cf-wasm/og'],
+  },
   plugins: [
     analog({
       ssr: true,
