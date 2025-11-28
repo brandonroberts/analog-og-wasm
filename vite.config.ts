@@ -102,12 +102,15 @@ export default defineConfig(() => ({
       nitro: {
         preset: 'vercel-edge',
         rollupConfig: {
-          //plugins: [vercelWasmModule()]
+          plugins: [vercelWasmModule()]
+        },
+        externals: {
+          inline: [
+            /^@cf-wasm\/og(\/.*)?$/, // or just '@cf-wasm/og'
+          ],
         },
         compatibilityDate: "2025-07-15",
-        experimental: { wasm: true },
-        wasm: { esmImport: true, lazy: true },
-      }
+      }      
     }),
     tailwindcss()
   ]
