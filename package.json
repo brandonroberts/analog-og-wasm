@@ -47,7 +47,7 @@
     "@angular/cli": "^21.0.0",
     "@angular/compiler-cli": "^21.0.0",
     "@cf-wasm/og": "^0.3.1",
-    "@cf-wasm/plugins": "^0.1.7",
+    "@cf-wasm/plugins": "^0.1.8",
     "@cf-wasm/resvg": "^0.3.1",
     "@cf-wasm/satori": "^0.3.1",
     "jsdom": "^22.0.0",
