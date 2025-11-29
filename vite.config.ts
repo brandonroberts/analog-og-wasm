@@ -21,10 +21,6 @@ export default defineConfig(() => ({
       static: false,
       nitro: {
         preset: 'vercel-edge',
-        cloudflare: {
-          deployConfig: true,
-          nodeCompat: true
-        },
         modules: [additionalModules({ target: "edge-light" })],
         compatibilityDate: "2025-07-15"
       }
