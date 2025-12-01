@@ -20,6 +20,7 @@ export default defineConfig(() => ({
       ssr: true,
       static: false,
       nitro: {
+        minify: true,
         preset: 'vercel-edge',
         modules: [additionalModules({ target: "edge-light" })],
         compatibilityDate: "2025-07-15"
