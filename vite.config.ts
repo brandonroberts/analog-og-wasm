@@ -11,6 +11,9 @@ import additionalModules from "@cf-wasm/plugins/nitro-additional-modules"
 export default defineConfig(() => ({
   build: {
     target: ['es2020'],
+    rollupOptions: {
+      external: ['@analogjs/content', 'xhr2']
+    }
   },
   resolve: {
     mainFields: ['module'],
@@ -24,7 +27,21 @@ export default defineConfig(() => ({
         modules: [additionalModules({ target: "edge-light" })],
         compatibilityDate: "2025-07-15",
         rollupConfig: {
-          external: ['@analogjs/content']
+          external: ['@analogjs/content', 'xhr2'],
+          plugins: [
+            {
+              name: 'exclude',
+              transform(code) {
+                if (code.includes(`import("@analogjs/content")`)) {
+                  return {
+                    code: code.replace(`import("@analogjs/content")`, 'Promise.resolve({})')
+                  }
+                }
+
+                return;
+              },
+            }
+          ]
         }
       }
     }),
