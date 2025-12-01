@@ -22,6 +22,9 @@ export default defineConfig(() => ({
     analog({
       ssr: true,
       static: false,
+      prerender: {
+        routes: []
+      },
       nitro: {
         preset: 'vercel-edge',
         modules: [additionalModules({ target: "edge-light" })],
