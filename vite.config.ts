@@ -11,6 +11,7 @@ import additionalModules from "@cf-wasm/plugins/nitro-additional-modules"
 export default defineConfig(() => ({
   build: {
     target: ['es2020'],
+    minify: true
   },
   resolve: {
     mainFields: ['module'],
