@@ -17,7 +17,7 @@ export default defineConfig(() => ({
   },
   plugins: [
     analog({
-      ssr: false,
+      ssr: true,
       static: false,
       nitro: {
         preset: 'vercel-edge',
