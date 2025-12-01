@@ -11,7 +11,6 @@ import additionalModules from "@cf-wasm/plugins/nitro-additional-modules"
 export default defineConfig(() => ({
   build: {
     target: ['es2020'],
-    minify: true
   },
   resolve: {
     mainFields: ['module'],
@@ -21,10 +20,12 @@ export default defineConfig(() => ({
       ssr: true,
       static: false,
       nitro: {
-        minify: true,
         preset: 'vercel-edge',
         modules: [additionalModules({ target: "edge-light" })],
-        compatibilityDate: "2025-07-15"
+        compatibilityDate: "2025-07-15",
+        rollupConfig: {
+          external: ['@analogjs/content']
+        }
       }
     }),
     tailwindcss()
