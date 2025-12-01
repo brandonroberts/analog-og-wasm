@@ -32,6 +32,11 @@ export default defineConfig(() => ({
             {
               name: 'exclude',
               transform(code) {
+                if (code.includes(`import("xhr2")`)) {
+                  return {
+                    code: code.replace(`import("xhr2")`, 'Promise.resolve({})')
+                  }
+                }                
                 if (code.includes(`import("@analogjs/content")`)) {
                   return {
                     code: code.replace(`import("@analogjs/content")`, 'Promise.resolve({})')
